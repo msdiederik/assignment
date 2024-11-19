@@ -6,8 +6,8 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 public class BodyParser<T> {
-    private ObjectMapper objectMapper;
-    private Class<T> typeParameterClass;
+    private final ObjectMapper objectMapper;
+    private final Class<T> typeParameterClass;
 
     public BodyParser(Class<T> typeParameterClass) {
         this.objectMapper = JsonMapper.builder()
