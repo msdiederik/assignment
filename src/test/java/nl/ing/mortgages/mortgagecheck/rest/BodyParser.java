@@ -16,7 +16,11 @@ public class BodyParser<T> {
         this.typeParameterClass = typeParameterClass;
     }
 
-    public T parseBody(String body) throws JsonProcessingException {
+    public T parseBodyToObject(String body) throws JsonProcessingException {
         return objectMapper.readValue(body, typeParameterClass);
+    }
+
+    public String parseObjectToBody(T object) throws JsonProcessingException {
+        return objectMapper.writeValueAsString(object);
     }
 }

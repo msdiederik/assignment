@@ -31,10 +31,7 @@ public class InterestRateFactory {
     }
 
     public static InterestRate validInterestRate() {
-        return new InterestRate(
-                faker.number().numberBetween(5,30),
-                new BigDecimal(faker.number().digits(2)),
-                faker.timeAndDate().past());
+        return interestRateBuilder().build();
     }
 
     public static InterestRate.InterestRateBuilder interestRateBuilder() {

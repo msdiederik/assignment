@@ -43,7 +43,7 @@ class MortgageServiceTest {
         MortgageCheckResult result = mortgageService.performMortgageCheck(income, maturityPeriod, loanValue, homeValue);
 
         BigDecimal expectedMonthlyCosts = loanValue.add(loanValue.multiply(interestRateValue.movePointLeft(2)))
-                .divide(BigDecimal.valueOf(((double) maturityPeriod/12)), RoundingMode.HALF_UP);
+                .divide(BigDecimal.valueOf((12)), RoundingMode.HALF_UP);
 
 
         assertThat(result.isFeasible()).isTrue();

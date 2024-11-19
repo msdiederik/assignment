@@ -41,7 +41,7 @@ class InterestRateAPITest {
                 .andReturn();
 
         String responseContent = result.getResponse().getContentAsString();
-        InterestRateListResponse parsedResponse = bodyParser.parseBody(responseContent);
+        InterestRateListResponse parsedResponse = bodyParser.parseBodyToObject(responseContent);
         assertThat(parsedResponse).usingRecursiveComparison().isEqualTo(expectedResponse);
     }
 }

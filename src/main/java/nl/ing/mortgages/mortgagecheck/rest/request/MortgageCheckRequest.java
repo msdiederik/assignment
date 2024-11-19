@@ -2,9 +2,11 @@ package nl.ing.mortgages.mortgagecheck.rest.request;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import lombok.Builder;
 
 import java.math.BigDecimal;
 
+@Builder
 public record MortgageCheckRequest(
         @NotNull
         @Positive
@@ -12,7 +14,7 @@ public record MortgageCheckRequest(
 
         @NotNull
         @Positive
-        int maturityPeriod,
+        Integer maturityPeriod,
 
         @NotNull
         @Positive

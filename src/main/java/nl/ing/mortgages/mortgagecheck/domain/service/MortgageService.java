@@ -20,7 +20,7 @@ public class MortgageService {
 
         if(loanDoesNotExceedIncomeFourTimes(loanValue, income)
                 && homeValueIsNotGreaterThanLoanValue(homeValue, loanValue)) {
-            return new MortgageCheckResult(true, calculateMonthlyCosts(loanValue, interestRate));
+            return new MortgageCheckResult(true, calculateMonthlyCosts(loanValue, interestRate.interestRate()));
         }
 
         return new MortgageCheckResult(false, BigDecimal.valueOf(0));
@@ -34,8 +34,8 @@ public class MortgageService {
         return homeValue.compareTo(loanValue) > 0;
     }
 
-    private BigDecimal calculateMonthlyCosts(BigDecimal loanValue, InterestRate interestRate) {
-        return loanValue.add(loanValue.multiply(interestRate.interestRate().movePointLeft(2)))
-                .divide(BigDecimal.valueOf(((double) interestRate.maturityPeriod()/12)), RoundingMode.HALF_UP);
+    private BigDecimal calculateMonthlyCosts(BigDecimal loanValue, BigDecimal interestRate) {
+        return loanValue.add(loanValue.multiply(interestRate.movePointLeft(2)))
+                .divide(BigDecimal.valueOf((12)), RoundingMode.HALF_UP);
     }
 }
