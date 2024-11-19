@@ -21,11 +21,6 @@ public class InterestRateService {
         return interestRateRepository.getInterestRates();
     }
 
-    public InterestRate getInterestRateByMaturityPeriod(int maturityPeriod) {
-        return interestRateRepository.getInterestRateByMaturityPeriod(maturityPeriod)
-               .orElseThrow(() -> new InterestRateNotFoundException(maturityPeriod));
-    }
-
     @EventListener(ApplicationReadyEvent.class)
     public void loadInterestRatesIntoMemory() {
         log.info("Loading interest rates...");
