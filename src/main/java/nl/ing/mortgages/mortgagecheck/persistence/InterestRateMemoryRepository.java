@@ -19,7 +19,9 @@ public class InterestRateMemoryRepository implements InterestRateRepository {
 
     @Override
     public Optional<InterestRate> getInterestRateByMaturityPeriod(int maturityPeriod) {
-        return Optional.of(storedInterestRates.get(maturityPeriod));
+
+        InterestRate result = storedInterestRates.get(maturityPeriod);
+        return result != null ? Optional.of(result) : Optional.empty();
     }
 
     @Override
