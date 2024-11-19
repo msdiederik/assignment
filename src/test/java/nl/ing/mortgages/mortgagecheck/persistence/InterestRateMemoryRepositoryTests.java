@@ -8,6 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,6 +20,12 @@ class InterestRateMemoryRepositoryTests {
     @BeforeEach
     void initRepository() {
         interestRateMemoryRepository = new InterestRateMemoryRepository();
+    }
+
+    @Test
+    void givenNoInterestRateWhenFinding_whenGetInterestRateByMaturityPeriod_thenEmptyOptionalIsReturned() {
+        Optional<InterestRate> result = interestRateMemoryRepository.getInterestRateByMaturityPeriod(12);
+        assertThat(result).isEmpty();
     }
 
     @Test
