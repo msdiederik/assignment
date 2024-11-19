@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface InterestRateRepository {
     List<InterestRate> getInterestRates();
     Optional<InterestRate> getInterestRateByMaturityPeriod(int maturityPeriod);
+    void saveAll(List<InterestRate> interestRates);
 }

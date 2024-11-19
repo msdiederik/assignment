@@ -9,5 +9,4 @@ public class MortgagecheckApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MortgagecheckApplication.class, args);
 	}
-
 }

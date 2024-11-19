@@ -55,6 +55,6 @@ class InterestRateServiceTest {
         InterestRateNotFoundException resultingException = assertThrows(InterestRateNotFoundException.class,
                 () -> interestRateService.getInterestRateByMaturityPeriod(maturityPeriod));
 
-        assertThat(resultingException).isEqualTo(expectedException);
+        assertThat(resultingException.getMessage()).isEqualTo(expectedException.getMessage());
     }
 }
